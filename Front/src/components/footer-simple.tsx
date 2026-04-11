@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const FooterSimple = () => {
   return (
     <footer className="bg-background text-primary px-6 py-20 min-h-screen">

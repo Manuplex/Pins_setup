@@ -44,7 +44,7 @@ const CardDemo = ({name,  Icon, description, href, cta, score, imageId}: CardPro
           </h1>
           <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
             {imageId ? (
-              <Link to="/gallery/$imageId" params={{ imageId: String(imageId) }} asChild>
+              <Link to="/gallery/$imageId" params={{ imageId: String(imageId) }}>
                 <Button>{cta}</Button>
               </Link>
             ) : (

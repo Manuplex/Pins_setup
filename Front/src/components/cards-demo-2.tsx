@@ -1,6 +1,5 @@
 "use client";
-
-import { type ComponentPropsWithoutRef, type ReactNode } from "react"
+import { type ComponentPropsWithoutRef } from "react"
 import { Link } from '@tanstack/react-router'
 import { Button } from "@/components/ui/button"
 

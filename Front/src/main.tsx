@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import 'urlpattern-polyfill';
 import './index.css'
 
 /// 1. Import de l'arbre de routes généré automatiquement

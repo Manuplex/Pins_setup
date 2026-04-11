@@ -4,3 +4,7 @@ pybreaker==1.4.1
 pydantic_settings==2.13.1
 setuptools==82.0.1
 SQLAlchemy==2.0.49
+pymysql>=1.1
+aiomysql>=0.3.2
+uvicorn>=0.41.0
+cryptography

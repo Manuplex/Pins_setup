@@ -1,0 +1,8 @@
+*.env
+#Docker data
+__pycache__
+*.log
+alembic
+app/
+node_modules
+alembic.ini

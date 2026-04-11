@@ -1,0 +1,58 @@
+---
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -u ${DB_USER} -p${DB_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+
+  api:
+    build:
+      context: .
+      dockerfile: Api/dockerfile
+      network: host
+    container_name: Api_project
+    restart: on-failure
+    environment:
+      - API_ENVIRONMENT=Development
+      - API_URLS=http://localhost:8000
+      - DATABASE_URL=mysql+pymysql://${DB_USER}:${DB_PASSWORD}@db:3306/${DB_NAME} # <-- Assurez-vous que cette variable d'environnement est définie dans votre fichier .env
+      - ASYNC_DATABASE_URL=mysql+aiomysql://${DB_USER}:${DB_PASSWORD}@localhost:3306/${DB_NAME} # <-- Assurez-vous que cette variable d'environnement est définie dans votre fichier .env
+    depends_on:
+      db:
+          condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./shared:/app/shared
+
+
+  frontend:
+    build:
+      context: ./Front
+      dockerfile: ./dockerfile
+      network: host
+    network_mode: "host"
+    container_name: container_frontend
+    restart: on-failure
+    environment:
+      - VITE_API_URL=http://localhost:5173
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules

@@ -1,0 +1,25 @@
+# Dockerfile dans /backend
+FROM python:3.12-slim
+
+WORKDIR /App
+
+# On installe les outils de build nécessaires
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
+# Copie des dépendances
+COPY Api/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copie du dossier partagé ET du code backend
+COPY shared/ /app/shared/
+
+
+# Installe en utilisant le résultat de la recherche
+RUN pip install -e $(find /app/shared -name "setup.py" -exec dirname {} \;)
+
+
+COPY . .
+
+# Lancement de FastAPI
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

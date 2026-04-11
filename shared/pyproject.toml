@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shared"
+version = "0.1.0"
+description = "Logique partagée entre le worker et l'API"
+dependencies = [
+    "sqlalchemy",
+    "aiomysql"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"] 

@@ -7,4 +7,4 @@ app/
 node_modules
 alembic.ini
 .env
-env
+env/

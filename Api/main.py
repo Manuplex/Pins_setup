@@ -13,9 +13,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:3000","https://grateful-radiance-production-77a9.up.railway.app")
+frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
-origins= [frontend_url]
+origins= [frontend_url,"https://grateful-radiance-production-77a9.up.railway.app"]
 
 app.add_middleware(
     CORSMiddleware,

@@ -31,7 +31,7 @@ services:
     environment:
       - API_ENVIRONMENT=Development
       - API_URLS=http://localhost:8000
-      - DATABASE_URL=mysql+pymysql://${DB_USER}:${DB_PASSWORD}@db:3306/${DB_NAME} # <-- Assurez-vous que cette variable d'environnement est définie dans votre fichier .env
+      - DATABAS E_URL=mysql+pymysql://${DB_USER}:${DB_PASSWORD}@db:3306/${DB_NAME} # <-- Assurez-vous que cette variable d'environnement est définie dans votre fichier .env
       - ASYNC_DATABASE_URL=mysql+aiomysql://${DB_USER}:${DB_PASSWORD}@localhost:3306/${DB_NAME} # <-- Assurez-vous que cette variable d'environnement est définie dans votre fichier .env
     depends_on:
       db:

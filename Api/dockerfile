@@ -18,7 +18,6 @@ COPY shared/ /app/shared/
 # Installe en utilisant le résultat de la recherche
 RUN pip install -e $(find /app/shared -name "setup.py" -exec dirname {} \;)
 
-
 COPY . .
 
 # Lancement de FastAPI

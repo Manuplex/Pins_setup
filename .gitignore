@@ -6,3 +6,4 @@ alembic
 app/
 node_modules
 alembic.ini
+env

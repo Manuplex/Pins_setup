@@ -1,0 +1,8 @@
+import axios from 'axios';
+
+const api = axios.create({
+  // Vite injecte automatiquement l'URL ici
+    baseURL: import.meta.env.VITE_API_URL,
+});
+
+export default api;

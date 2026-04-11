@@ -1,0 +1,23 @@
+FROM node:24.4.1-slim
+
+WORKDIR /app
+
+# On copie les fichiers de dépendances
+COPY package*.json ./
+
+RUN npm config set audit false
+
+
+RUN npm config set fetch-retries 5
+
+# On lance npm install, et si ça rate, on affiche le dernier log créé
+RUN npm install --loglevel verbose || (ls -t /root/.npm/_logs/*.log | head -n 1 | xargs cat && exit 1)
+
+# Copie du reste du code
+COPY . .
+
+# Vite tourne par défaut sur le 5173
+EXPOSE 5173
+
+# On lance Vite avec l'option --host pour que Docker puisse exposer le port
+CMD ["npm", "run", "dev", "--", "--host"]

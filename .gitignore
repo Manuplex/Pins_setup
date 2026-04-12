@@ -1,8 +1,7 @@
-*.env
+
 #Docker data
 __pycache__
 *.log
 app/
 node_modules
-.env
 env/

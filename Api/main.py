@@ -10,6 +10,14 @@ from shared.db import get_Async_session
 from shared.models import Pins_Images
 from shared.models import SubCategorie_pin
 from fastapi.middleware.cors import CORSMiddleware
+from shared.db import Base, Sync_engine
+# Importe ici tous tes modèles (Article, User, etc.) pour que SQLAlchemy les connaisse
+# from shared.models import Article, Category ...
+
+# Cette ligne va créer les tables sur Railway au démarrage
+
+
+Base.metadata.create_all(bind=Sync_engine)
 
 app = FastAPI()
 

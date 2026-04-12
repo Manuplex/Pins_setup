@@ -34,12 +34,12 @@ interface Item{
 
 const fetchItems = async ({ pageParam = 0 }) => {
   const limit = 20;
-  const res = await api.get(`/items?skip=${pageParam}&limit=${limit}`);
+  const res = await api.get(`/items/?skip=${pageParam}&limit=${limit}`);
   return res.data;
 };
 
 const fetchCategories = async () => {
-  const res = await api.get(`/categories`);
+  const res = await api.get(`/categories/`);
   return res.data;
 }
 

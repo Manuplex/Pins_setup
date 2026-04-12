@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 5173
 
 # On lance Vite avec l'option --host pour que Docker puisse exposer le port
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "build", "--", "--host"]

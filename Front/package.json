@@ -28,6 +28,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-intersection-observer": "^10.0.3",
+    "serve": "^14.2.6",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
     "urlpattern-polyfill": "^10.1.0"

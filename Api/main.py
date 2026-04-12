@@ -23,7 +23,7 @@ app = FastAPI()
 
 frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
-origins= [frontend_url,"https://grateful-radiance-production-77a9.up.railway.app"]
+origins= [frontend_url]
 
 app.add_middleware(
     CORSMiddleware,

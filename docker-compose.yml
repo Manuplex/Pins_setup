@@ -37,8 +37,9 @@ services:
       db:
           condition: service_healthy
     volumes:
-      - ./backend:/app
+      - ./Api:/app
       - ./shared:/app/shared
+      - ./.env:/app/.env
 
 
   frontend:
@@ -54,5 +55,6 @@ services:
     depends_on:
       - api
     volumes:
-      - ./frontend:/app
+      - ./Front:/app
       - /app/node_modules
+      - ./.env:/app/.env

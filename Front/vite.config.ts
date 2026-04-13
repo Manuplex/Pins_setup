@@ -7,13 +7,22 @@ import 'urlpattern-polyfill';
 import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [tanstackRouter({
+export default defineConfig(({ mode }) => ({
+  plugins: [
+    tanstackRouter({
       target: 'react',
       autoCodeSplitting: true,
-    }),react(),tailwindcss(),visualizer({ open: true }),],resolve: {
+    }),
+    react(),
+    tailwindcss(),
+    mode === 'analyze' && visualizer({ 
+        open: true,
+        filename: 'stats.html',
+        gzipSize: true 
+      }),
+    ].filter(Boolean),resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
+}))

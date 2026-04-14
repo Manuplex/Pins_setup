@@ -27,13 +27,17 @@ Ce projet est réalisé dans un cadre exclusivement **éducatif** et personnel. 
 
 Ce projet est à but éducatif. Il me permet de tester mes capacités dans la création d' un vrai projet web, full-stack de son début **(conception)** jusqu'à sa fin **(Déploiement)**
 
+## Architecture
+
+![Architecture_pins_setup](./docs/assets/diagram_Pinsteup.svg)
+---
+
 ## Visitez-le sur:
 
 **[[Pins_Setup](https://pinssetup.up.railway.app/)]**
-
 Si vous voulez me contacter, pour des projets intéressants: 
 
-📤​📩​📨​ pmanou792@gmail.com
+📤​📩​📨​ manbeyond02@gmail.com
 
 
 

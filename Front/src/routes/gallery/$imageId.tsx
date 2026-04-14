@@ -70,9 +70,6 @@ function RouteComponent() {
           >
             ← Retour à la galerie
           </Link>
-          <div className="text-sm font-medium text-foreground">
-            {image.Pin_id}
-          </div>
         </div>
       </div>
 

@@ -203,7 +203,6 @@ function RouteComponent() {
 
               {/* Footer Metadata */}
               <div className="text-xs text-muted-foreground pt-4 border-t border-border text-center">
-                <p>Article ID: {image.article_id}</p>
                 <p className="mt-1">
                   {new Date(image.created_at).toLocaleDateString('fr-FR')}
                 </p>

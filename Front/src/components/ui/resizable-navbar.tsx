@@ -10,6 +10,7 @@ import {
 
 import React, { useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import Man_b from "@/assets/Man_b.png";
 
 type NavbarButtonProps<T extends React.ElementType = typeof Link> = {
   to?: string;
@@ -220,12 +221,12 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-primary"
     >
       <img
-        src="https://assets.aceternity.com/logo-dark.png"
+        src={Man_b}
         alt="logo"
         width={30}
         height={30}
       />
-      <span className="font-medium text-primary dark:text-background">Startup</span>
+      <span className="font-medium text-primary dark:text-background">Pins_Setup</span>
     </Link>
   );
 };
